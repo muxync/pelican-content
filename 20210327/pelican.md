@@ -11,28 +11,33 @@ Summary: Walk through Pelican installation and configuration for publishing stat
 
 1. Install system dependencies, e.g. for Debian based systems:
 
+        :::shell
         sudo apt install git python3-pip
 
 2. Clone the repository/submodules and install pelican dependencies:
 
+        :::shell
         git clone --recurse-submodules git@gitlab.com:muxync/pelican-blog.git
         cd pelican-blog
         sudo pip3 install -r requirements.txt
 
 3. Generate and serve static site
 
+        :::shell
         make publish
         make serve
         # View at http://127.0.0.1:8000
 
 4. Replace my *code* with your own:
 
+        :::shell
         ${EDITOR} pelicanconf.py
         # Make changes to AUTHOR/SITENAME/etc and save
         # Repeat step 3
 
 5. Replace my *content* with your own:
 
+        :::shell
         # Remove the existing content submodule
         git submodule deinit content
         git rm content
@@ -47,6 +52,7 @@ Summary: Walk through Pelican installation and configuration for publishing stat
 
 6. Update your *content* within your *code* repo:
 
+        :::shell
         git submodule update --remote --merge
 
 # Intro
