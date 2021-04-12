@@ -55,6 +55,12 @@ Summary: Walk through Pelican installation and configuration for publishing stat
     # Repeat step 3
     ```
 
+6. Update your *content* within your *code* repo:
+
+    ```
+    git submodule update --remote --merge
+    ```
+
 # Intro
 For my first post I'll explain how you can setup and host your own static website built with [Pelican](https://getpelican.com) and hosted by [GitLab](https://about.gitlab.com).  If you want to you can learn more [about me](pages/about.html) or you can [clone this repo](https://gitlab.com/muxync/pelican-blog.git) and try it out yourself.
 
