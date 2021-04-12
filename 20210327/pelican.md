@@ -11,55 +11,43 @@ Summary: Walk through Pelican installation and configuration for publishing stat
 
 1. Install system dependencies, e.g. for Debian based systems:
 
-    ```
-    sudo apt install git python3-pip
-    ```
+        sudo apt install git python3-pip
 
 2. Clone the repository/submodules and install pelican dependencies:
 
-    ```
-    git clone --recurse-submodules git@gitlab.com:muxync/pelican-blog.git
-    cd pelican-blog
-    sudo pip3 install -r requirements.txt
-    ```
+        git clone --recurse-submodules git@gitlab.com:muxync/pelican-blog.git
+        cd pelican-blog
+        sudo pip3 install -r requirements.txt
 
 3. Generate and serve static site
 
-    ```
-    make publish
-    make serve
-    # View at http://127.0.0.1:8000
-    ```
+        make publish
+        make serve
+        # View at http://127.0.0.1:8000
 
 4. Replace my *code* with your own:
 
-    ```
-    ${EDITOR} pelicanconf.py
-    # Make changes to AUTHOR/SITENAME/etc and save
-    # Repeat step 3
-    ```
+        ${EDITOR} pelicanconf.py
+        # Make changes to AUTHOR/SITENAME/etc and save
+        # Repeat step 3
 
 5. Replace my *content* with your own:
 
-    ```
-    # Remove the existing content submodule
-    git submodule deinit content
-    git rm content
-    rm -rf .git/modules/content
+        # Remove the existing content submodule
+        git submodule deinit content
+        git rm content
+        rm -rf .git/modules/content
 
-    # Add your new content submodule
-    git submodule add ../pelican-content.git content
-    git submodule sync --recursive
-    git submodule update --init --recursive
+        # Add your new content submodule
+        git submodule add ../pelican-content.git content
+        git submodule sync --recursive
+        git submodule update --init --recursive
 
-    # Repeat step 3
-    ```
+        # Repeat step 3
 
 6. Update your *content* within your *code* repo:
 
-    ```
-    git submodule update --remote --merge
-    ```
+        git submodule update --remote --merge
 
 # Intro
 For my first post I'll explain how you can setup and host your own static website built with [Pelican](https://getpelican.com) and hosted by [GitLab](https://about.gitlab.com).  If you want to you can learn more [about me](pages/about.html) or you can [clone this repo](https://gitlab.com/muxync/pelican-blog.git) and try it out yourself.
