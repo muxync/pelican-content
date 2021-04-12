@@ -47,7 +47,6 @@ Summary: Walk through Pelican installation and configuration for publishing stat
         git submodule add ../pelican-content.git content
         git submodule sync --recursive
         git submodule update --init --recursive
-
         # Repeat step 3
 
 6. Update your *content* within your *code* repo:
