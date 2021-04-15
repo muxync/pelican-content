@@ -1,11 +1,11 @@
-Title: Hosting a static website on GitLab Pages with Pelican
+Title: Create a static website with Pelican
+Slug: pelican-create
 Date: 2021-03-27 10:20
 Modified: 2021-03-28 19:30
 Category: Pelican
 Tags: cicd, gitlab, pelican
-Slug: pelican-setup
 Authors: Mark Mulligan
-Summary: Walk through Pelican installation and configuration for publishing static websites directly from a GitLab repository.
+Summary: Example Pelican installation and configuration for creating static websites.
 
 ### <span style="color:red">**DISCLAIMER:**</span> This document shows how easy it is to get started with Pelican but is not intended to replace [the official Pelican documentation](https://docs.getpelican.com/en/stable/index.html)
 
@@ -160,33 +160,4 @@ Then you can update *your content* (`pelican-content`) within *your code* (`peli
     :::shell
     git submodule update --remote --merge
 
-If that seems overly complex you could instead replace the `content` git submodule with a directory containing your content.  I went with this approach because it keeps my code and content separate so I can license them differently.  It works well for me and the GitLab CI makes it painless to manage (I'll cover that another time).
-
-
-```
-mkdir mirrors
-cd mirrors/
-git clone https://github.com/gfidente/pelican-svbhack
-rm -rf pelican-svbhack/
-git clone git@gitlab.lan:mirrors/pelican-svbhack.git
-cd pelican-svbhack/
-git remote -v
-git remote add upstream https://github.com/gfidente/pelican-svbhack.git
-git fetch --all --prune
-git checkout upstream/master -b upstream
-git push origin --set-upstream upstream
-git remote -v
-git branch -va
-git remote set-url --push git@gitlab.lan:mirrors/pelican-svbhack.git
-git remote set-url --push upstream git@gitlab.lan:mirrors/pelican-svbhack.git
-git remote -v
-git pull
-git push
-..
-cd pelican-svbhack/
-git remote -v
-git remote set-url master git@gitlab.lan:d/pelican-theme-svbhack.git
-git remote set-url origin git@gitlab.lan:d/pelican-theme-svbhack.git
-git remote -v
-git pull
-```
+If that seems overly complex you could instead replace the `content` git submodule with a directory containing your content.  I went with this approach because it keeps my code and content separate so I can license them differently.  It works well for me and the GitLab CI makes it painless to manage (I'll cover that in my [next post](pelican-gitlab.html)).
