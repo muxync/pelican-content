@@ -1,10 +1,10 @@
 Title: Hosting a Pelican static website on GitLab Pages
 Slug: pelican-gitlab
 Date: 2021-04-14 22:05
-Modified: 2021-03-28 19:30
+Modified: 2021-04-14 22:05
+Authors: Mark Mulligan
 Category: Pelican
 Tags: cicd, gitlab, pelican
-Authors: Mark Mulligan
 Summary: Overview of my GitLab configuration for publishing static websites directly from GitLab.
 
 

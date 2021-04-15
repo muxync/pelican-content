@@ -2,10 +2,11 @@ Title: Create a static website with Pelican
 Slug: pelican-create
 Date: 2021-03-27 10:20
 Modified: 2021-03-28 19:30
-Category: Pelican
-Tags: cicd, gitlab, pelican
 Authors: Mark Mulligan
+Category: Pelican
+Tags: git, pelican, python
 Summary: Example Pelican installation and configuration for creating static websites.
+
 
 ### <span style="color:red">**DISCLAIMER:**</span> This document shows how easy it is to get started with Pelican but is not intended to replace [the official Pelican documentation](https://docs.getpelican.com/en/stable/index.html)
 
