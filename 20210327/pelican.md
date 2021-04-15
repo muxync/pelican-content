@@ -7,6 +7,8 @@ Slug: pelican-setup
 Authors: Mark Mulligan
 Summary: Walk through Pelican installation and configuration for publishing static websites directly from a GitLab repository.
 
+### <span style="color:red">**DISCLAIMER:**</span> This document shows how easy it is to get started with Pelican but is not intended to replace [the official Pelican documentation](https://docs.getpelican.com/en/stable/index.html)
+
 #### **TL;DR**
 
 1. Install system dependencies, e.g. for Debian based systems:
