@@ -1,4 +1,5 @@
 Title: About
+Slug: about
 
 My name is Mark Mulligan and I'm a systems engineer with over 10 years experience using GNU/Linux.  I'm a conscientious worker who’s methodical and adept at troubleshooting complex systems.  A responsible collaborator with a mixed background in hardware and software that's always looking for a better way of doing things.
 
