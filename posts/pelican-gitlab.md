@@ -1,4 +1,4 @@
-Title: Hosting a Pelican static website on GitLab Pages
+Title: Host a Pelican static website on GitLab Pages
 Slug: pelican-gitlab
 Date: 2021-04-14 22:05
 Modified: 2021-04-14 22:05
