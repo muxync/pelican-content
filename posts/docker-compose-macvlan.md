@@ -89,6 +89,7 @@ Example **client container** `docker-compose.yml`, in this case for [syncthing](
           - /storage/syncthing:/var/syncthing
         restart: always
         container_name: syncthing
+        mac_address: 02:42:C0:A8:01:D9
         expose:
           - "8384"
           - "22000"
@@ -109,9 +110,21 @@ Example **client container** `docker-compose.yml`, in this case for [syncthing](
 and the corresponding `dnsmasq` config:
 
     :::ini
-    dhcp-host=52:54:00:75:27:9D,syncthing,192.168.1.217,infinite
+    dhcp-host=02:42:C0:A8:01:D9,syncthing,192.168.1.217,infinite
     address=/syncthing/192.168.1.217
     ptr-record=217.1.168.192.in-addr.arpa,syncthing
+
+The MAC address (e.g. "02:42:C0:A8:01:D9") can be determined after starting the container with:
+
+    :::shell
+    sudo docker container inspect \
+      --format='{{range .NetworkSettings.Networks}}{{.MacAddress}}{{end}}' syncthing \
+      | tr '[:lower:]' '[:upper:]'
+
+You should see something like:
+
+    :::shell
+    02:42:C0:A8:01:D9
 
 After starting the `syncthing` container with `sudo docker-compose up -d` I was able to connect to from another computer on my network to the [Syncthing web interface](https://syncthing:8384) but it still wouldn't work from the same host the docker container is running on...
 
