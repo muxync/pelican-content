@@ -3,8 +3,8 @@ Slug: docker-compose-macvlan
 Date: 2021-04-17 21:10
 Modified: 2021-04-17 21:10
 Authors: Mark Mulligan
-Category:
-Tags:
+Category: SysOps
+Tags: docker, macvlan
 Summary: Example Docker Compose file for configuring a macvlan network to connect containers to a physical network.
 
 
