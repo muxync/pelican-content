@@ -1,5 +1,5 @@
 Title: Self-Managed GitLab using Docker Compose
-Slug: gitlab-docker-compose
+Slug: docker-compose-gitlab
 Date: 2021-04-17 15:03
 Modified: 2021-04-17 15:03
 Authors: Mark Mulligan
