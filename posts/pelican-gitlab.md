@@ -130,7 +130,7 @@ That I can push to my "production" public GitLab instance with:
     git rebase master
     git push --set-upstream downstream downstream
 
-# Content
+# GitLab CI
 My `content` repo doesn't have an `upstream` remote/branch since it's all my original content, however it still has a `downstream` remote/branch that I use as described above.  The other major difference is I have automated the process of updating the `content` submodule in my `pelican-blog` repo with the following [pelican-content `.gitlab-ci.yml`](https://gitlab.com/muxync/pelican-content/-/blob/master/.gitlab-ci.yml):
 
     :::yaml
