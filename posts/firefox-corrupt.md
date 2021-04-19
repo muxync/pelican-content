@@ -48,7 +48,7 @@ The command ran until it abruptly stopped on a file, in this case `places.sqlite
 
 I hit `Ctrl + C` to cancel the rsync command (see the `^C` above) having found the troublesome file.
 
-# Fix
+# Fixing
 
 I removed the corrupt file:
 
