@@ -1,7 +1,7 @@
 Title: Docker Compose macvlan network for accessing containers
 Slug: docker-compose-macvlan
-Date: 2021-04-17 21:10
-Modified: 2021-04-17 21:10
+Date: 2021-04-03 15:03
+Modified: 2021-04-03 15:03
 Authors: Mark Mulligan
 Category: SysOps
 Tags: docker, macvlan
