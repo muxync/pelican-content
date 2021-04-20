@@ -28,7 +28,7 @@ I added a new remote named `upstream` to make it easy to periodically sync upstr
     git fetch --all --prune
     git checkout upstream/master -b upstream
     git branch -v
-    git push origin --set-upstream upstream
+    git push origin -u upstream
     git remote set-url origin git@gitlab.lan:muxync/pelican-themes.git
     git remote -v
     git remote set-url --push upstream git@gitlab.lan:muxync/pelican-themes.git
@@ -56,7 +56,7 @@ and here is the output of those commands:
     ~/Workspace/pelican-blog/themes (upstream 65dd78d)$ git branch -v
        master   65dd78d Merge pull request #705 from aleylara/master
     *  upstream 65dd78d Merge pull request #705 from aleylara/master
-    ~/Workspace/pelican-blog/themes (upstream 65dd78d)$ git push origin --set-upstream upstream
+    ~/Workspace/pelican-blog/themes (upstream 65dd78d)$ git push origin -u upstream
     Total 0 (delta 0), reused 0 (delta 0)
      * [new branch]      upstream -> upstream
     Branch 'upstream' set up to track remote branch 'upstream' from 'origin'.
@@ -112,10 +112,12 @@ Then I can create a new remote/branch named `downstream` with:
     # From the themes directory
     git remote add downstream git@gitlab.com:muxync/pelican-themes.git
     git checkout -b downstream
+    git branch -u downstream/master
 
     # From the pelican-blog directory
     git remote add downstream git@gitlab.com:muxync/pelican-blog.git
     git checkout -b downstream
+    git branch -u downstream/master
 
 That I can push to my "production" public GitLab instance with:
 
@@ -123,12 +125,12 @@ That I can push to my "production" public GitLab instance with:
     # From the themes directory
     git checkout downstream
     git rebase master
-    git push --set-upstream downstream master
+    git push -u downstream master
 
     # From the pelican-blog directory
     git checkout downstream
     git rebase master
-    git push --set-upstream downstream master
+    git push -u downstream master
 
 # GitLab CI
 My `content` repo doesn't have an `upstream` remote/branch since it's all my original content, however it still has a `downstream` remote/branch that I use as described above.  The other major difference is I have automated the process of updating the `content` submodule in my `pelican-blog` repo with the following [pelican-content `.gitlab-ci.yml`](https://gitlab.com/muxync/pelican-content/-/blob/master/.gitlab-ci.yml):
@@ -178,7 +180,7 @@ So when I push to the `CI_DEFAULT_BRANCH` (in my case `master`) branch of the `p
         - GIT_SUBMOD_SHA_AFTER=$(git submodule status | grep content | awk '{print $1}')
         - git commit -m "automated content submodule update from ${GIT_SUBMOD_SHA_BEFORE} to ${GIT_SUBMOD_SHA_AFTER}"
         - git remote set-url origin git@${CI_SERVER_HOST}:${CI_PROJECT_PATH}.git
-        - git push --set-upstream origin auto-content-${CI_PIPELINE_IID} -o merge_request.create -o merge_request.target=${CI_DEFAULT_BRANCH} -o merge_request.merge_when_pipeline_succeeds -o merge_request.remove_source_branch -o merge_request.title="Automated content submodule update ${CI_PIPELINE_IID}"
+        - git push -u origin auto-content-${CI_PIPELINE_IID} -o merge_request.create -o merge_request.target=${CI_DEFAULT_BRANCH} -o merge_request.merge_when_pipeline_succeeds -o merge_request.remove_source_branch -o merge_request.title="Automated content submodule update ${CI_PIPELINE_IID}"
       rules:
         - if: '$CI_PIPELINE_SOURCE == "pipeline"'
 
