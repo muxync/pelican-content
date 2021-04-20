@@ -123,12 +123,12 @@ That I can push to my "production" public GitLab instance with:
     # From the themes directory
     git checkout downstream
     git rebase master
-    git push --set-upstream downstream downstream
+    git push --set-upstream downstream master
 
     # From the pelican-blog directory
     git checkout downstream
     git rebase master
-    git push --set-upstream downstream downstream
+    git push --set-upstream downstream master
 
 # GitLab CI
 My `content` repo doesn't have an `upstream` remote/branch since it's all my original content, however it still has a `downstream` remote/branch that I use as described above.  The other major difference is I have automated the process of updating the `content` submodule in my `pelican-blog` repo with the following [pelican-content `.gitlab-ci.yml`](https://gitlab.com/muxync/pelican-content/-/blob/master/.gitlab-ci.yml):
