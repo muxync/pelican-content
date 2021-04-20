@@ -4,7 +4,7 @@ Date: 2021-04-10 21:10
 Modified: 2021-04-10 21:10
 Authors: Mark Mulligan
 Category: SysAdmin
-Tags: gitlab, docker-compose
+Tags: docker, gitlab
 Summary: Example Docker Compose file for Self-Managed GitLab instances.
 
 
