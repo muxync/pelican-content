@@ -112,11 +112,13 @@ Then I can create a new remote/branch named `downstream` with:
     # From the themes directory
     git remote add downstream git@gitlab.com:muxync/pelican-themes.git
     git checkout -b downstream
+    git push -u downstream master
     git branch -u downstream/master
 
     # From the pelican-blog directory
     git remote add downstream git@gitlab.com:muxync/pelican-blog.git
     git checkout -b downstream
+    git push -u downstream master
     git branch -u downstream/master
 
 That I can push to my "production" public GitLab instance with:
