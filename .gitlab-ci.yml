@@ -1,3 +1,4 @@
+---
 downstream:
   trigger:
     project: muxync/pelican-blog

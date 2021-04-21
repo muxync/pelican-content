@@ -1,0 +1,9 @@
+---
+repos:
+  - repo: https://github.com/adrienverge/yamllint.git
+    rev: v1.17.0
+    hooks:
+      # yamllint -d "{extends: default, rules: {line-length: disable, comments: {require-starting-space: false}}}" .gitlab-ci.yml
+      - id: yamllint
+        args: ['-d {extends: default, rules: {line-length: disable, comments: {require-starting-space: false}}}', '-s']
+        types: [file, yaml]
