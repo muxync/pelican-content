@@ -10,7 +10,11 @@ Summary: Example Docker Compose file for Self-Managed GitLab instances.
 
 *This is a follow up to my [Docker macvlan post](docker-compose-macvlan.html) where I shared an example Docker Compose file for configuring a macvlan network to connect containers to a physical network.*
 
+# GitLab
+
 GitLab has become an invaluable tool for me but getting it to work via Docker Compose was not so straight forward and unfortunately the [offical GitLab documentation](https://docs.gitlab.com/omnibus/docker/#install-gitlab-using-docker-compose) makes no mention of one glaring issue; **GitLab Pages must be run in a separate container!**  This is the config I settled on after a lot of time wasted trying to get GitLab Pages to work on my Self-Managed GitLab instance which works fine for my purpose.
+
+# Compose
 
 Example **gitlab** `docker-compose.yml`:
 
@@ -106,6 +110,8 @@ and the corresponding `dnsmasq` config:
     address=/pages.lan/192.168.1.215
     ptr-record=215.1.168.192.in-addr.arpa,pages.lan
 
+# Register
+
 After you first start your GitLab instance with `docker-compose up -d` and complete the initial configuration you'll want to register your GitLab Runner so you can run some builds.  To do that I use the following script named `gitlab-runner-register.sh`:
 
     :::shell
@@ -133,6 +139,8 @@ After you first start your GitLab instance with `docker-compose up -d` and compl
         --docker-image docker:stable \
         --docker-volumes "/var/run/docker.sock:/var/run/docker.sock" \
         --docker-network-mode ${DOCKER_NETWORK_NAME}
+
+# Upgrade
 
 So far this setup has fit my needs perfectly and managing GitLab via containers instead of the overhead of a full blown virtual machine has been a great improvement.  I still want to setup some automation for updating my containers ([Watchtower](https://containrrr.dev/watchtower) seems promising) but for now I have been using simple shell scripts like this `upgrade.sh`:
 
